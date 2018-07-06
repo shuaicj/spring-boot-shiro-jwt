@@ -1,4 +1,4 @@
-package shuaicj.example.shiro.realm.file.controller;
+package shuaicj.example.shiro.controller;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.PostMapping;

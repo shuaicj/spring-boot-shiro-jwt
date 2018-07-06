@@ -1,4 +1,4 @@
-package shuaicj.example.shiro.realm.file;
+package shuaicj.example.shiro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

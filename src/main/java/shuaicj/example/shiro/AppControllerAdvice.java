@@ -1,4 +1,4 @@
-package shuaicj.example.shiro.realm.file;
+package shuaicj.example.shiro;
 
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.UnauthenticatedException;

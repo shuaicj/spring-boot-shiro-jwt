@@ -1,7 +1,9 @@
-package shuaicj.example.shiro.realm.file;
+package shuaicj.example.shiro;
+
+import javax.sql.DataSource;
 
 import org.apache.shiro.realm.Realm;
-import org.apache.shiro.realm.text.PropertiesRealm;
+import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +18,11 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public Realm realm() {
-        return new PropertiesRealm(); // classpath:shiro-users.properties
+    public Realm realm(DataSource dataSource) {
+        JdbcRealm jdbcRealm = new JdbcRealm();
+        jdbcRealm.setDataSource(dataSource);
+        jdbcRealm.setPermissionsLookupEnabled(true);
+        return jdbcRealm;
     }
 
     @Bean

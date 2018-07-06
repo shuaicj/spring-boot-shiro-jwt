@@ -1,0 +1,7 @@
+# uncomment and modify the following properties to use mysql
+
+#spring:
+#  datasource:
+#    url: jdbc:mysql://127.0.0.1:3306/shiro?characterEncoding=UTF-8&useSSL=false
+#    username: mysql
+#    password: mysql

@@ -1,4 +1,4 @@
-package shuaicj.example.shiro.realm.file;
+package shuaicj.example.shiro;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
