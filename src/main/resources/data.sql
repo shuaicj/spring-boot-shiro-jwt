@@ -1,9 +1,14 @@
 -- users
 -----------------------
-insert into users(username, password) values ('alice', 'alice-password');
-insert into users(username, password) values ('bob', 'bob-password');
-insert into users(username, password) values ('chris', 'chris-password');
-insert into users(username, password) values ('david', 'david-password');
+
+-- <'alice', bcrypt('alice-password')>
+insert into users(username, password) values ('alice', '$2a$10$ezJDL4CP0jMOsXO/0SmvJetPMehGdiIDYzh2SKsfkW5c57Bz33o2m');
+-- <'bob', bcrypt('bob-password')>
+insert into users(username, password) values ('bob', '$2a$10$vPZXpQ37RHVQhfI1jPCC9.6.w7LsmPu4Fee0FCF45rOXqv99UtQoa');
+-- <'chris', bcrypt('chris-password')>
+insert into users(username, password) values ('chris', '$2a$10$zo967KgB3M5kDcyRH.k6KegnSGKzfggZnG2wtCongD8FtIJTSrBnW');
+-- <'david', bcrypt('david-password')>
+insert into users(username, password) values ('david', '$2a$10$5H1gBZKAXY8UZsUwUbdGZux3GvXoOVP.urSI6RKH/TRsqGbtRb/UW');
 
 
 -- roles of users

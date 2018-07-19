@@ -2,12 +2,14 @@ package shuaicj.example.shiro;
 
 import javax.sql.DataSource;
 
+import org.apache.shiro.authc.credential.PasswordMatcher;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import shuaicj.example.shiro.security.BCryptPasswordService;
 
 /**
  * Config beans.
@@ -19,9 +21,12 @@ public class AppConfig {
 
     @Bean
     public Realm realm(DataSource dataSource) {
+        PasswordMatcher passwordMatcher = new PasswordMatcher();
+        passwordMatcher.setPasswordService(new BCryptPasswordService());
         JdbcRealm jdbcRealm = new JdbcRealm();
         jdbcRealm.setDataSource(dataSource);
         jdbcRealm.setPermissionsLookupEnabled(true);
+        jdbcRealm.setCredentialsMatcher(passwordMatcher);
         return jdbcRealm;
     }
 
