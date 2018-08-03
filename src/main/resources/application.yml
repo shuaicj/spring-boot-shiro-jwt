@@ -5,3 +5,8 @@
 #    url: jdbc:mysql://127.0.0.1:3306/shiro?characterEncoding=UTF-8&useSSL=false
 #    username: mysql
 #    password: mysql
+
+
+
+# jwt secret
+shuaicj.security.jwt.secret: otherpeopledontknowit

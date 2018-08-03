@@ -5,16 +5,16 @@ import org.apache.shiro.authz.UnauthenticatedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * Error handling.
  *
  * @author shuaicj 2018/06/29
  */
-@ControllerAdvice
+@RestControllerAdvice
 public class AppControllerAdvice {
 
     private static final Logger log = LoggerFactory.getLogger(AppControllerAdvice.class);
