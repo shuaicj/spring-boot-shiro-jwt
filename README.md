@@ -17,6 +17,7 @@ curl -i -H "Content-Type: application/json" -X POST -d '{"username":"alice","pas
 You will see the token in response header for user `alice`. Note that the status code `401` will be returned if you provide incorrect username or password. See all predefined users in section [Users, Roles and Permissions](#users-roles-and-permissions).
 
 #### 3. Access protected APIs
+
 The general command to verify if the auth works is as follows:
 ```bash
 curl -i -H "Authorization: Bearer token-you-got-in-step-2" http://localhost:8080/admin-only
@@ -25,7 +26,9 @@ or without token:
 ```bash
 curl -i http://localhost:8080/admin-only
 ```
+
 You can change the token and the URL as need. See all predefined URLs in section [APIs](#apis). The response status code varies in different situations:
+
 |                                            | public api | protected api |
 | ------------------------------------------ | ---------- | ------------- |
 | token valid and with enough authorities    | 200        | 200           |
@@ -33,7 +36,9 @@ You can change the token and the URL as need. See all predefined URLs in section
 | token missing or invalid                   | 200        | 401           |
 
 ### Users, Roles and Permissions
+
 The following users are defined in the demo. For details, see [schema.sql](src/main/resources/schema.sql) and [data.sql](src/main/resources/data.sql).
+
 | username | password       | roles         | permissions            |
 | -------- | -------------- | ------------- | ---------------------- |
 | alice    | alice-password | admin         | *                      |
@@ -46,6 +51,7 @@ The following users are defined in the demo. For details, see [schema.sql](src/m
 ### APIs
 
 ##### Role Based APIs
+
 |                | roles required |
 | -------------- | -------------- |
 | /admin-only    | admin          |
@@ -54,6 +60,7 @@ The following users are defined in the demo. For details, see [schema.sql](src/m
 | /public-to-all |                |
 
 ##### Permission Based APIs
+
 |                | permissions required |
 | -------------- | -------------------- |
 | /read          | files:read           |
