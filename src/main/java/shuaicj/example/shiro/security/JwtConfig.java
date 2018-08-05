@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
  */
 @Getter
 @ToString
-public class JwtAuthenticationConfig {
+public class JwtConfig {
 
     @Value("${shuaicj.security.jwt.url:/login}")
     private String url;

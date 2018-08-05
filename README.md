@@ -14,7 +14,9 @@ mvn spring-boot:run
 ```bash
 curl -i -H "Content-Type: application/json" -X POST -d '{"username":"alice","password":"alice-password"}' http://localhost:8080/login
 ```
-You will see the token in response header for user `alice`. Note that the status code `401` will be returned if you provide incorrect username or password. See all predefined users in section [Users, Roles and Permissions](#users-roles-and-permissions).
+You will see the token in response header for user `alice`. Note that the status code `401` will be returned
+if you provide incorrect username or password.
+See all predefined users in section [Users, Roles and Permissions](#users-roles-and-permissions).
 
 #### 3. Access protected APIs
 
@@ -27,7 +29,8 @@ or without token:
 curl -i http://localhost:8080/admin-only
 ```
 
-You can change the token and the URL as need. See all predefined URLs in section [APIs](#apis). The response status code varies in different situations:
+You can change the token and the URL as need. See all predefined URLs in section [APIs](#apis).
+The response status code varies in different situations:
 
 |                                            | public api | protected api |
 | ------------------------------------------ | ---------- | ------------- |
@@ -37,7 +40,8 @@ You can change the token and the URL as need. See all predefined URLs in section
 
 ### Users, Roles and Permissions
 
-The following users are defined in the demo. For details, see [schema.sql](src/main/resources/schema.sql) and [data.sql](src/main/resources/data.sql).
+The following users are defined in the demo. For details, see [schema.sql](src/main/resources/schema.sql)
+and [data.sql](src/main/resources/data.sql).
 
 | username | password       | roles         | permissions            |
 | -------- | -------------- | ------------- | ---------------------- |
@@ -46,7 +50,8 @@ The following users are defined in the demo. For details, see [schema.sql](src/m
 | chris    | chris-password | file-operator | files:*                |
 | david    | david-password | log-archiver  | files:read,archive:log |
 
-> Note: the in-memory database called `H2` is used by default. It's very easy to switch to `MySQL` as need. See [application.yml](src/main/resources/application.yml).
+> Note: the in-memory database called `H2` is used by default. It's very easy to switch to `MySQL` as need.
+See [application.yml](src/main/resources/application.yml).
 
 ### APIs
 

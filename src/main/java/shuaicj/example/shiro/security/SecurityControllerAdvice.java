@@ -1,4 +1,4 @@
-package shuaicj.example.shiro;
+package shuaicj.example.shiro.security;
 
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.UnauthenticatedException;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @author shuaicj 2018/06/29
  */
 @RestControllerAdvice
-public class AppControllerAdvice {
+public class SecurityControllerAdvice {
 
-    private static final Logger log = LoggerFactory.getLogger(AppControllerAdvice.class);
+    private static final Logger log = LoggerFactory.getLogger(SecurityControllerAdvice.class);
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.UNAUTHORIZED)

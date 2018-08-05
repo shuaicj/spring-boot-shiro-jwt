@@ -33,11 +33,11 @@ import org.apache.shiro.web.servlet.OncePerRequestFilter;
 @Slf4j
 public class JwtUsernamePasswordAuthFilter extends OncePerRequestFilter {
 
-    private final JwtAuthenticationConfig config;
+    private final JwtConfig config;
     private final JdbcRealm realm;
     private final ObjectMapper mapper;
 
-    public JwtUsernamePasswordAuthFilter(JwtAuthenticationConfig config, Realm realm) {
+    public JwtUsernamePasswordAuthFilter(JwtConfig config, Realm realm) {
         this.config = config;
         this.realm = (JdbcRealm) realm;
         this.mapper = new ObjectMapper();

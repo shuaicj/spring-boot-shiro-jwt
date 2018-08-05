@@ -16,7 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-import shuaicj.example.shiro.security.JwtAuthenticationConfig;
+import shuaicj.example.shiro.security.JwtConfig;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,7 +26,7 @@ public class ShiroTest {
     TestRestTemplate restTemplate;
 
     @Autowired
-    private JwtAuthenticationConfig jwtConfig;
+    private JwtConfig jwtConfig;
 
     @Test
     public void testLogin() {

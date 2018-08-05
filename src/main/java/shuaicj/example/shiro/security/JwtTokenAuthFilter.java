@@ -24,9 +24,9 @@ import org.apache.shiro.web.servlet.OncePerRequestFilter;
 @Slf4j
 public class JwtTokenAuthFilter extends OncePerRequestFilter {
 
-    private final JwtAuthenticationConfig config;
+    private final JwtConfig config;
 
-    public JwtTokenAuthFilter(JwtAuthenticationConfig config) {
+    public JwtTokenAuthFilter(JwtConfig config) {
         this.config = config;
     }
 

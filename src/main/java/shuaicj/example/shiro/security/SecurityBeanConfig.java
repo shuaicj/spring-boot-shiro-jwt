@@ -1,7 +1,4 @@
-package shuaicj.example.shiro;
-
-import java.util.List;
-import javax.sql.DataSource;
+package shuaicj.example.shiro.security;
 
 import org.apache.shiro.authc.credential.PasswordMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -13,12 +10,9 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import shuaicj.example.shiro.security.BCryptPasswordService;
-import shuaicj.example.shiro.security.JdbcRealm;
-import shuaicj.example.shiro.security.JwtAuthenticationConfig;
-import shuaicj.example.shiro.security.JwtTokenAuthFilter;
-import shuaicj.example.shiro.security.JwtTokenRealm;
-import shuaicj.example.shiro.security.JwtUsernamePasswordAuthFilter;
+
+import javax.sql.DataSource;
+import java.util.List;
 
 /**
  * Config beans.
@@ -26,21 +20,21 @@ import shuaicj.example.shiro.security.JwtUsernamePasswordAuthFilter;
  * @author shuaicj 2018/06/29
  */
 @Configuration
-public class AppConfig {
+public class SecurityBeanConfig {
 
     @Bean
-    public JwtAuthenticationConfig jwtAuthenticationConfig() {
-        return new JwtAuthenticationConfig();
+    public JwtConfig jwtConfig() {
+        return new JwtConfig();
     }
 
     @Bean
-    public JwtUsernamePasswordAuthFilter jwtUsernamePasswordAuthFilter(JwtAuthenticationConfig config,
+    public JwtUsernamePasswordAuthFilter jwtUsernamePasswordAuthFilter(JwtConfig config,
                                                                        @Qualifier("jdbcRealm") Realm realm) {
         return new JwtUsernamePasswordAuthFilter(config, realm);
     }
 
     @Bean
-    public JwtTokenAuthFilter jwtTokenAuthFilter(JwtAuthenticationConfig config) {
+    public JwtTokenAuthFilter jwtTokenAuthFilter(JwtConfig config) {
         return new JwtTokenAuthFilter(config);
     }
 
@@ -66,7 +60,7 @@ public class AppConfig {
     }
 
     @Bean
-    public ShiroFilterChainDefinition shiroFilterChainDefinition(JwtAuthenticationConfig config) {
+    public ShiroFilterChainDefinition shiroFilterChainDefinition(JwtConfig config) {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
 
         // The following two lines indicate that:
